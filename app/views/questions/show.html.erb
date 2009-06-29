@@ -1,0 +1,49 @@
+<div id="quiz" class="span-14">
+
+
+
+
+<blockquote>
+    <h2><%=h @question.qbody %></h2>
+      <div id="answers">
+        <% form_remote_tag :url => { :action => "add_to_scorecard", :id => :answer } do %>
+            <table>
+            <%= render :partial =>  @question.answers %>
+            </table>
+                <% if @question.next_id.blank? %>
+                <%= submit_tag 'submit last answer', :onclick => "this.disabled='disabled'", :class => "submit_question" %>
+                <% else %>
+                <%= submit_tag 'submit answer', :onclick => "this.disabled='disabled'", :class => "submit_question" %>
+               <% end %>
+        <% end %>
+      </div>
+
+  <% if current_admin %>
+      <%= link_to "Edit", edit_question_path(@question) %>
+      <%= link_to "Destroy", @question, :confirm => 'Are you sure?', :method => :delete %>
+      
+  <% end %>
+  
+  <div id="next">
+<% if @question.next_id.blank? %>
+  <h3>Last question! <%= link_to "finish", finish_path %> </h3> 
+<% else %>
+  <%= link_to "next question", question_path(@question.next_id) %>
+<% end %>
+</div>
+ 
+</blockquote>
+
+
+
+</div><!--quiz-->
+
+
+<div id="scorecard" class="span-8 last">
+<%= render(:partial => "scorecard", :object => @scorecard) %>
+
+</div><!--scorecard-->
+
+<div id="footer" class="span-24">
+</div>
+

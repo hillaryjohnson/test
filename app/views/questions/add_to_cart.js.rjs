@@ -1,0 +1,1 @@
+page.replace_html("scorecard", :partial => "scorecard", :object => @scorecard)

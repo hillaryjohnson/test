@@ -1,0 +1,26 @@
+<h2>Your Answer Sheet:</h2>
+<ul>
+  <% for  item in @scorecard.items %>
+  <li><%=h item.abody %> Points: <%=h item.points %></li>
+  <% end %>
+</ul>
+   You answered 
+        <% if item.truthiness == true %>
+          correctly:
+        <% else %>
+          incorrectly, alas:
+        <% end %>
+      <em>"<%=h item.abody %>"</em><br />
+        <% if item.truthiness == true %><br />
+        That answer earns you <%= item.points %> points.<br />
+        <% else %>
+        No points for this one.<br />
+        <% end %>
+        <br /><h3>Some feedback based on your answer:</h3>
+        <%=h item.feedback %><br /><br />
+
+
+<h3>You've earned <%= @scorecard.score %> points so far!</h3>
+
+<%= button_to 'Delete all your answers and start over', { :action => 'erase_answers' }, :confirm => 'You know, in Agile we embrace and even celebrate failure, because we learn best from our mistakes. Inspect and adapt, baby. So, are you sure you want to start all over again?' %><br />
+<%= link_to "back to the quiz", :back %>

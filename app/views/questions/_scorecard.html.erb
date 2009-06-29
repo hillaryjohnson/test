@@ -1,0 +1,38 @@
+<% if @scorecard.items.blank? %>
+  <h2>Test your agility!</h2>
+  <p>How agile are you? Do you know your backlog from your burndown? Here are 20 questions to make you think. As in life, some answers are more right than others. You'll get more points for those. Some answers are "wronger" than others, too, but don't worry, we won't ding you for those--though we will attempt to set you straight on the matter. We hope you learn something, whatever your level of expertise.</p>
+  <p>So go ahead, pick an answer and get started. You'll see your score reflected right here.</p>
+  <% else %>
+
+    <h3>You've earned <span id="points" class="points"><%= @scorecard.score %> points</span> so far!</h3>
+   <!-- 
+    <ul>
+      <% for  item in @scorecard.items  %>
+      <li><%=h item.abody %> Points: <%=h item.points %></li>
+      <% end %>
+    </ul>
+  -->
+    
+       You have answered
+            <% if item.truthiness == true %>
+              correctly:
+            <% else %>
+              incorrectly, alas:
+            <% end %>
+          <em>"<%=h item.abody %>"</em><br />
+            <% if item.truthiness == true %><br />
+            That answer earns you <span class="points"><%= item.points %> points.</span><br />
+            <% else %>
+            No points for this one.<br />
+            <% end %>
+            <br /><h3>Some feedback based on your answer:</h3>
+            <%=h item.feedback %><br /><br />
+    
+    
+    
+    
+    <%= button_to 'Delete all your answers and start over', { :action => 'erase_answers' }, :confirm => 'You know, in Agile we embrace and even celebrate failure, because we learn best from our mistakes. Inspect and adapt, baby. So, are you sure you want to start all over again?' %><br />
+
+    
+    <% end %>
+    

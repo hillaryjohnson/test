@@ -1,0 +1,22 @@
+
+
+      <% div_for answer do  %>
+          <tr>
+            <td>
+              <h3><%=h answer.abody %></h3>
+              <% if current_admin %>
+              <strong>Truthiness:</strong> <%=h answer.truthiness %> <strong>Points:</strong> <%=h answer.points %>
+              <% end %>
+            </td>
+            <td>
+        
+              <%= radio_button_tag :answer, answer.id, false %>
+        
+             
+            </td>
+          </tr>
+  
+
+       
+      <% end %>
+

@@ -1,0 +1,190 @@
+body {
+
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+
+
+#container {
+  background-color: #fff;
+
+  margin-right: auto;
+  margin-left: auto;
+  float:none;
+
+}
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
+/****** my css *****/
+
+
+
+#header {
+background: transparent url(/images/banner.png) top center no-repeat;
+  height: 200px;
+}
+
+#header h1 {
+  margin-left: -2000px;
+}
+
+h2, h3 {
+  color: #666; 
+  font-family: Georgia, serif; 
+  font-style: italic;
+  line-height: 1.2em;
+}
+
+h2 {
+    font-weight: bold;
+  }
+  
+h3 {
+  font-style: normal;
+  font-weight: bold;
+}
+
+#sidebar {
+  padding: 20px;
+  border-right : thin solid #d2d2d2;
+}
+
+#scorecard p {
+  font-family: trebuchet;
+  
+}
+
+td {
+  border-bottom: thin solid #d2d2d2;
+  padding: 20px 20px 0 0;
+}
+
+blockquote h2 {
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+#scorecard {
+  border-left: thin solid #d2d2d2;
+  padding: 0 0 0 40px;
+}
+
+.points {
+  color: #ff0000;
+}
+
+#welcome {
+  text-align: center;
+}
+
+#finish h2 {
+  text-align: center;
+}
+
+#finish ul {
+
+  margin: 20px 200px;
+}
+#finish li {
+    padding: 20px ;
+  }
+
+
+#footer {
+  text-align: center;
+}
+
+.question_nav {
+  text-align: center;
+}
+
+
+.submit_question {
+
+  float: right;
+}
+
+
+/*
+
+input  {
+  background: #ff0000;
+  font-size: 9px;
+  display: inline;
+  border: none;
+  color: #fff;
+  padding: 2px;
+}
+*/
+
+
+
+
+

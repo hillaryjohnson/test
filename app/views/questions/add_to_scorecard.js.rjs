@@ -1,0 +1,5 @@
+page.replace_html("scorecard", :partial => "scorecard", :object => @scorecard )
+
+page[:points].visual_effect :pulsate, :duration => 1, :pulses => 1, :from => 0.6
+
+

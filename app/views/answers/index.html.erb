@@ -1,0 +1,25 @@
+<% title "Answers" %>
+
+<table>
+  <tr>
+    <th>Abody</th>
+    <th>Question</th>
+    <th>Truthiness</th>
+    <th>Points</th>
+    <th>Feedback</th>
+  </tr>
+  <% for answer in @answers %>
+    <tr>
+      <td><%=h answer.abody %></td>
+      <td><%=h answer.question_id %></td>
+      <td><%=h answer.truthiness %></td>
+      <td><%=h answer.points %></td>
+      <td><%=h answer.feedback %></td>
+      <td><%= link_to "Show", answer %></td>
+      <td><%= link_to "Edit", edit_answer_path(answer) %></td>
+      <td><%= link_to "Destroy", answer, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Answer", new_answer_path %></p>

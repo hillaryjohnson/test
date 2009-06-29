@@ -1,0 +1,24 @@
+<% form_for @answer do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :abody %><br />
+    <%= f.text_area :abody %>
+  </p>
+  <p>
+    <%= f.label :question_id %><br />
+    <%= f.text_field :question_id %>
+  </p>
+  <p>
+    <%= f.label :truthiness %><br />
+    <%= f.check_box :truthiness %>
+  </p>
+  <p>
+    <%= f.label :points %><br />
+    <%= f.text_field :points %>
+  </p>
+  <p>
+    <%= f.label :feedback %><br />
+    <%= f.text_area :feedback %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
