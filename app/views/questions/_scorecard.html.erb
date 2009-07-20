@@ -1,6 +1,6 @@
 <% if @scorecard.items.blank? %>
-  <h2>Test your agility!</h2>
-  <p>How agile are you? Do you know your backlog from your burndown? Here are 20 questions to make you think. As in life, some answers are more right than others. You'll get more points for those. Some answers are "wronger" than others, too, but don't worry, we won't ding you for those--though we will attempt to set you straight on the matter. We hope you learn something, whatever your level of expertise.</p>
+  <h2>How much do you know about story sizing?</h2>
+  <p>Here are a few questions about the art of agile estimation, which we like to refer to as "story sizing." As in life, some answers are more right than others. Your task isn't to pick the "right" answer, but the best answer. Seems more realistic, doesn't it?. You'll get some points for good answers, and more points for great answers. You'll also get feedback based on your answers. We hope you learn something, whatever your level of expertise.</p>
   <p>So go ahead, pick an answer and get started. You'll see your score reflected right here.</p>
   <% else %>
 
@@ -26,7 +26,7 @@
             No points for this one.<br />
             <% end %>
             <br /><h3>Some feedback based on your answer:</h3>
-            <%=h item.feedback %><br /><br />
+            <%= item.feedback %><br /><br />
     
     
     
