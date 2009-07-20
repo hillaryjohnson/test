@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090625003654) do
+ActiveRecord::Schema.define(:version => 20090720194454) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20090625003654) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
+    t.text     "session_id", :limit => 255, :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
