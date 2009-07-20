@@ -17456,3 +17456,603 @@ Processing QuestionsController#finish (for 127.0.0.1 at 2009-06-28 13:22:36) [GE
 Rendering template within layouts/application
 Rendering questions/finish
 Completed in 109ms (View: 31, DB: 0) | 200 OK [http://localhost/finish]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-10 12:55:45) [GET]
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 3531ms (View: 3485, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-10 12:55:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (15.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (63.0ms)
+Completed in 781ms (View: 687, DB: 0) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-10 12:56:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (16.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 2) [0m
+Rendered answers/_answer (93.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT id FROM "questions" WHERE (id > 2) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 266ms (View: 172, DB: 32) | 200 OK [http://localhost/questions/2]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-10 12:59:05) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mQuestion Load (15.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 3) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 3) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 235ms (View: 172, DB: 15) | 200 OK [http://localhost/questions/3]
+
+
+Processing AdminSessionsController#new (for 127.0.0.1 at 2009-07-10 12:59:47) [GET]
+Rendering template within layouts/application
+Rendering admin_sessions/new
+Completed in 422ms (View: 125, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing AdminSessionsController#create (for 127.0.0.1 at 2009-07-10 12:59:57) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"IVgdJtGLUKKS84guGbRqzF6XOBcnXKq6SmmlqShse3s=", "admin_session"=>{"password"=>"TmiPassword", "login"=>"Hillary"}}
+  [4;36;1mAdmin Load (0.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE (LOWER("admins".login) = 'hillary') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 594ms (DB: 0) | 302 Found [http://localhost/admin_sessions]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-10 12:59:58) [GET]
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-10 13:00:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+  [4;36;1mAdmin Load (0.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+Rendered answers/_answer (125.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (15.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 313ms (View: 219, DB: 0) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-10 13:02:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (15.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+  [4;36;1mAdmin Load (16.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+Rendered answers/_answer (109.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 296ms (View: 187, DB: 31) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-10 13:14:57) [GET]
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 93ms (View: 62, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-10 13:15:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+Rendered answers/_answer (94.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (15.0ms)
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 266ms (View: 203, DB: 0) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-13 06:53:00) [GET]
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 2859ms (View: 2828, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-13 06:53:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (62.0ms)
+Completed in 672ms (View: 609, DB: 16) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#add_to_scorecard (for 127.0.0.1 at 2009-07-13 06:53:36) [POST]
+  Parameters: {"answer"=>"1", "authenticity_token"=>"c3YPAuCoQZ/PwF5WWMkpXygxIBGSwiuIc9UkMRDF7t4=", "id"=>"answer"}
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = 1) [0m
+Rendering questions/add_to_scorecard
+Rendered questions/_scorecard (0.0ms)
+Completed in 93ms (View: 46, DB: 0) | 200 OK [http://localhost/questions/add_to_scorecard/answer]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-13 06:53:47) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (16.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 2) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 2) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 203ms (View: 124, DB: 16) | 200 OK [http://localhost/questions/2]
+
+
+Processing QuestionsController#add_to_scorecard (for 127.0.0.1 at 2009-07-13 06:53:57) [POST]
+  Parameters: {"answer"=>"7", "authenticity_token"=>"c3YPAuCoQZ/PwF5WWMkpXygxIBGSwiuIc9UkMRDF7t4=", "id"=>"answer"}
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = 7) [0m
+Rendering questions/add_to_scorecard
+Rendered questions/_scorecard (0.0ms)
+Completed in 78ms (View: 31, DB: 0) | 200 OK [http://localhost/questions/add_to_scorecard/answer]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-13 06:54:08) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 3) [0m
+Rendered answers/_answer (344.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 3) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 500ms (View: 422, DB: 16) | 200 OK [http://localhost/questions/3]
+
+
+Processing QuestionsController#add_to_scorecard (for 127.0.0.1 at 2009-07-13 06:54:19) [POST]
+  Parameters: {"answer"=>"11", "authenticity_token"=>"c3YPAuCoQZ/PwF5WWMkpXygxIBGSwiuIc9UkMRDF7t4=", "id"=>"answer"}
+  [4;36;1mAnswer Load (16.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = 11) [0m
+Rendering questions/add_to_scorecard
+Rendered questions/_scorecard (16.0ms)
+Completed in 78ms (View: 16, DB: 31) | 200 OK [http://localhost/questions/add_to_scorecard/answer]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-13 06:54:23) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 4) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (16.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 4) ORDER BY id LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT id FROM "questions" WHERE (id > 4) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 218ms (View: 140, DB: 0) | 200 OK [http://localhost/questions/4]
+
+
+Processing QuestionsController#add_to_scorecard (for 127.0.0.1 at 2009-07-13 06:54:30) [POST]
+  Parameters: {"authenticity_token"=>"c3YPAuCoQZ/PwF5WWMkpXygxIBGSwiuIc9UkMRDF7t4=", "id"=>"answer"}
+
+ActiveRecord::RecordNotFound (Couldn't find Answer without an ID):
+  app/controllers/questions_controller.rb:57:in `add_to_scorecard'
+
+Rendered rescues/_trace (485.0ms)
+Rendered rescues/_request_and_response (15.0ms)
+Rendering rescues/layout (not_found)
+
+
+Processing QuestionsController#finish (for 127.0.0.1 at 2009-07-13 06:54:35) [GET]
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/finish
+Completed in 297ms (View: 219, DB: 16) | 200 OK [http://localhost/finish]
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (15.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (171.0ms)[0m   [0;1mCREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "abody" text, "question_id" integer, "truthiness" boolean, "points" integer DEFAULT 0, "feedback" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "qbody" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (109.0ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (125.0ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (125.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (141.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (109.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090625003654')[0m
+  [4;35;1mSQL (125.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090622234342')[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090622234508')[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090624212420')[0m
+  [4;36;1mSQL (125.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090624213748')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (157.0ms)[0m   [0;1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (172.0ms)[0m   [0;1mCREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "abody" text, "question_id" integer, "truthiness" boolean, "points" integer DEFAULT 0, "feedback" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "qbody" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (141.0ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (140.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (250.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (109.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090625003654')[0m
+  [4;35;1mSQL (125.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090622234342')[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090622234508')[0m
+  [4;35;1mSQL (172.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090624212420')[0m
+  [4;36;1mSQL (328.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090624213748')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (16.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (156.0ms)[0m   [0;1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(255), "crypted_password" varchar(255), "password_salt" varchar(255), "persistence_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (156.0ms)[0m   [0;1mCREATE TABLE "answers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "abody" text, "question_id" integer, "truthiness" boolean, "points" integer DEFAULT 0, "feedback" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (125.0ms)[0m   [0;1mCREATE TABLE "questions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "qbody" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (125.0ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (156.0ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (140.0ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (125.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090625003654')[0m
+  [4;35;1mSQL (297.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090622234342')[0m
+  [4;36;1mSQL (203.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090622234508')[0m
+  [4;35;1mSQL (188.0ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20090624212420')[0m
+  [4;36;1mSQL (328.0ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20090624213748')[0m
+
+
+Processing AdminSessionsController#new (for 127.0.0.1 at 2009-07-13 07:53:40) [GET]
+Rendering template within layouts/application
+Rendering admin_sessions/new
+Completed in 109ms (View: 47, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing AdminSessionsController#create (for 127.0.0.1 at 2009-07-13 07:53:58) [POST]
+  Parameters: {"commit"=>"Submit", "authenticity_token"=>"c3YPAuCoQZ/PwF5WWMkpXygxIBGSwiuIc9UkMRDF7t4=", "admin_session"=>{"password"=>"TmiPassword", "login"=>"hillary"}}
+  [4;36;1mAdmin Load (0.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE (LOWER("admins".login) = 'hillary') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 828ms (DB: 0) | 302 Found [http://localhost/admin_sessions]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-13 07:53:59) [GET]
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-13 07:54:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mQuestion Load (16.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+  [4;36;1mAdmin Load (0.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+Rendered answers/_answer (141.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 250ms (View: 204, DB: 16) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-07-13 07:54:14) [GET]
+  [4;36;1mAdmin Load (0.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" ORDER BY created_at DESC LIMIT 1 OFFSET 0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+  [4;35;1mAnswer Load (15.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 4) [0m
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered questions/_scorecard (0.0ms)
+Completed in 219ms (View: 79, DB: 15) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#new (for 127.0.0.1 at 2009-07-13 07:54:25) [GET]
+  [4;36;1mAdmin Load (0.0ms)[0m   [0;1mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/new
+Rendered questions/_form (31.0ms)
+Completed in 469ms (View: 63, DB: 0) | 200 OK [http://localhost/questions/new]
+
+
+Processing QuestionsController#index (for 127.0.0.1 at 2009-07-13 07:54:49) [GET]
+  [4;35;1mAdmin Load (0.0ms)[0m   [0mSELECT * FROM "admins" WHERE ("admins"."id" = '1') LIMIT 1[0m
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" ORDER BY created_at DESC LIMIT 1 OFFSET 0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "questions" [0m
+Rendering template within layouts/application
+Rendering questions/index
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 4) [0m
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (16.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered questions/_scorecard (15.0ms)
+Completed in 218ms (View: 78, DB: 0) | 200 OK [http://localhost/questions]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-20 09:31:01) [GET]
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 3172ms (View: 3140, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:31:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (16.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (16.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (31.0ms)
+Completed in 688ms (View: 593, DB: 32) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-20 09:33:24) [GET]
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:33:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (156.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (16.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 281ms (View: 234, DB: 0) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#add_to_scorecard (for 127.0.0.1 at 2009-07-20 09:33:33) [POST]
+  Parameters: {"answer"=>"3", "authenticity_token"=>"baMN3YyFpvzD9/mOUxXl74HxG9OHaYTAbVIwwZUQvzw=", "id"=>"answer"}
+  [4;36;1mAnswer Load (16.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = 3) [0m
+Rendering questions/add_to_scorecard
+Rendered questions/_scorecard (16.0ms)
+Completed in 125ms (View: 62, DB: 16) | 200 OK [http://localhost/questions/add_to_scorecard/answer]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-20 09:35:06) [GET]
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 78ms (View: 46, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:35:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (16.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (93.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 266ms (View: 172, DB: 16) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:35:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (15.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 234ms (View: 172, DB: 15) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:35:34) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 2) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT id FROM "questions" WHERE (id > 2) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 250ms (View: 187, DB: 0) | 200 OK [http://localhost/questions/2]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-20 09:40:39) [GET]
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:40:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;35;1mAnswer Load (0.0ms)[0m   [0mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (78.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;36;1mQuestion Load (0.0ms)[0m   [0;1mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (16.0ms)
+Completed in 500ms (View: 203, DB: 15) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#show (for 127.0.0.1 at 2009-07-20 09:43:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" WHERE ("questions"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering questions/show
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers".question_id = 1) [0m
+Rendered answers/_answer (47.0ms)
+Rendered answers/_answer (16.0ms)
+Rendered answers/_answer (0.0ms)
+Rendered answers/_answer (0.0ms)
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT id FROM "questions" WHERE (id > 1) ORDER BY id LIMIT 1[0m
+Rendered questions/_scorecard (0.0ms)
+Completed in 188ms (View: 110, DB: 0) | 200 OK [http://localhost/questions/1]
+
+
+Processing QuestionsController#add_to_scorecard (for 127.0.0.1 at 2009-07-20 09:43:48) [POST]
+  Parameters: {"answer"=>"3", "authenticity_token"=>"baMN3YyFpvzD9/mOUxXl74HxG9OHaYTAbVIwwZUQvzw=", "id"=>"answer"}
+  [4;36;1mAnswer Load (0.0ms)[0m   [0;1mSELECT * FROM "answers" WHERE ("answers"."id" = 3) [0m
+Rendering questions/add_to_scorecard
+Rendered questions/_scorecard (15.0ms)
+Completed in 62ms (View: 15, DB: 0) | 200 OK [http://localhost/questions/add_to_scorecard/answer]
+
+
+Processing QuestionsController#erase_answers (for 127.0.0.1 at 2009-07-20 09:44:08) [POST]
+  Parameters: {"authenticity_token"=>"baMN3YyFpvzD9/mOUxXl74HxG9OHaYTAbVIwwZUQvzw="}
+Redirected to http://localhost:3000/welcome
+Completed in 422ms (DB: 0) | 302 Found [http://localhost/questions/erase_answers]
+
+
+Processing QuestionsController#welcome (for 127.0.0.1 at 2009-07-20 09:44:09) [GET]
+  [4;35;1mQuestion Load (0.0ms)[0m   [0mSELECT * FROM "questions" LIMIT 1[0m
+Rendering template within layouts/application
+Rendering questions/welcome
+Completed in 375ms (View: 187, DB: 0) | 200 OK [http://localhost/welcome]
