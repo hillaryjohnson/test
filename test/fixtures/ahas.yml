@@ -1,0 +1,7 @@
+one:
+  body: MyText
+  page_id: MyString
+
+two:
+  body: MyText
+  page_id: MyString

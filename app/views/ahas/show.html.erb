@@ -1,0 +1,16 @@
+<% title "Aha" %>
+
+<p>
+  <strong>Body:</strong>
+  <%=h @aha.body %>
+</p>
+<p>
+  <strong>Page:</strong>
+  <%=h @aha.page_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_aha_path(@aha) %> |
+  <%= link_to "Destroy", @aha, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", ahas_path %>
+</p>

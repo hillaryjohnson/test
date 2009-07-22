@@ -1,0 +1,17 @@
+<% title "Pages" %>
+<h2>List of Pages</h2>
+
+<div class="list">
+<ul id="pagelist">
+  
+    <% for page in @pages %>
+      <% content_tag_for :li, page do %>
+       <%=h page.position %> <%=h page.title %> | <%= link_to "link", page %>
+      <% end %>
+    <% end %>
+
+</ul>
+
+
+<%= sortable_element("pagelist", :url => sort_pages_path) %>
+</div>

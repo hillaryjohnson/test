@@ -1,16 +1,14 @@
 <% title "Page" %>
+<div class="page">
+  <%= render :partial => 'content' %>
 
-<p>
-  <strong>Title:</strong>
-  <%=h @page.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%=h @page.body %>
-</p>
-
-<p>
+<div class="footer span-24">
+  <p>
   <%= link_to "Edit", edit_page_path(@page) %> |
   <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", pages_path %>
 </p>
+</div>
+</div>
+
+

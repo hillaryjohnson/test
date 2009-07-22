@@ -1,0 +1,19 @@
+<% title "Ahas" %>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>Page</th>
+  </tr>
+  <% for aha in @ahas %>
+    <tr>
+      <td><%=h aha.body %></td>
+      <td><%=h aha.page_id %></td>
+      <td><%= link_to "Show", aha %></td>
+      <td><%= link_to "Edit", edit_aha_path(aha) %></td>
+      <td><%= link_to "Destroy", aha, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Aha", new_aha_path %></p>

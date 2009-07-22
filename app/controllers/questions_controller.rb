@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answers, :welcome, :finish]
 
   def index
-    @questions = Question.paginate :per_page => 1, :page => params[:page], :order => 'created_at DESC'
+    @questions = Question.paginate :per_page => 10, :page => params[:page], :order => 'created_at DESC'
     @scorecard = find_scorecard
   end
   

@@ -1,19 +1,27 @@
 <% title "Pages" %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-  </tr>
-  <% for page in @pages %>
-    <tr>
-      <td><%=h page.title %></td>
-      <td><%=h page.body %></td>
-      <td><%= link_to "Show", page %></td>
-      <td><%= link_to "Edit", edit_page_path(page) %></td>
-      <td><%= link_to "Destroy", page, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="page">
 
-<p><%= link_to "New Page", new_page_path %></p>
+  <% for page in @pages %>
+    <div class="pagesidebar span-7">
+    <h2><%=h page.title %></h2>
+    <h3><%= render :inline => page.body %></h3>
+
+    
+  </div>
+  <div class="pagebody span-16 last">
+<%= render :inline => page.visual %>
+  </div>
+  <hr />
+  <% end %>
+<div class="footer">
+  <div class="flickr_pagination">
+  <%= will_paginate @pages %>
+  </div>
+<% if current_admin %>
+<p><%= link_to "New Page", new_page_path %> |
+<%= link_to "Edit", edit_page_path(page) %> |
+  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
+<% end %>
+</div>
+</div>

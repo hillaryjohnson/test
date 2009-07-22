@@ -9,13 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090720194454) do
+ActiveRecord::Schema.define(:version => 20090722173104) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ahas", :force => true do |t|
+    t.text     "body"
+    t.string   "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20090720194454) do
     t.text     "feedback"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "visual",     :limit => 255
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "questions", :force => true do |t|

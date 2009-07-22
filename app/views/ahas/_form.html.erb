@@ -1,0 +1,12 @@
+<% form_for @aha do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :page_id %><br />
+    <%= f.text_field :page_id %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

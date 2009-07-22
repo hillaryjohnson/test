@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
+  before_filter :require_admin, :except => [:index]
+  
   def index
-    @pages = Page.all
+    @pages = Page.paginate :per_page => 1, :page => params[:page], :order => 'position'
   end
   
   def show
@@ -41,4 +43,18 @@ class PagesController < ApplicationController
     flash[:notice] = "Successfully destroyed page."
     redirect_to pages_url
   end
+  
+  def list
+    @pages = Page.all(:order => "position")
+  end
+  
+  def sort
+    params[:pages].each_with_index do |id, index|
+      Page.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
+  end
+  
 end
+
+

@@ -1,11 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :pages
+  map.resources :ahas
+
+  map.resources :pages, :collection => { :sort => :post }
 
   
   map.login "login", :controller => "admin_sessions", :action => "new"
   map.logout "logout", :controller => "admin_sessions", :action => "destroy"
   map.welcome "welcome", :controller => "questions", :action => "welcome"
   map.finish "finish", :controller => "questions", :action => "finish"
+  map.list "list", :controller => "pages", :action => "list"
+  
   map.resources :admin_sessions
   map.resources :admins
 
