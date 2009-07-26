@@ -1,22 +1,27 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :faqs, :collection => { :sort => :post }
+
   map.resources :ahas
 
   map.resources :pages, :collection => { :sort => :post }
 
+  map.resources :questions, :has_many => :answers, :collection => { :sort => :post }
+  
+  map.resources  :answers
   
   map.login "login", :controller => "admin_sessions", :action => "new"
   map.logout "logout", :controller => "admin_sessions", :action => "destroy"
   map.welcome "welcome", :controller => "questions", :action => "welcome"
   map.finish "finish", :controller => "questions", :action => "finish"
   map.list "list", :controller => "pages", :action => "list"
+
   
   map.resources :admin_sessions
   map.resources :admins
 
 
 
-  map.resources :questions, :has_many => :answers
-  map.resources  :answers
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -24,6 +29,8 @@ ActionController::Routing::Routes.draw do |map|
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
+  
+  
 
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'

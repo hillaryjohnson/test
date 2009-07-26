@@ -1,3 +1,2 @@
-class Aha < ActiveRecord::Base
-  belongs_to :page
+class Aha < ActiveRecordbelongs_to :page
 end

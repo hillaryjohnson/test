@@ -6,11 +6,11 @@
 </ul>
    You answered 
         <% if item.truthiness == true %>
-          correctly:
+          correctly!
         <% else %>
-          incorrectly, alas:
+          incorrectly, alas!
         <% end %>
-      <em>"<%=h item.abody %>"</em><br />
+ 
         <% if item.truthiness == true %><br />
         That answer earns you <%= item.points %> points.<br />
         <% else %>

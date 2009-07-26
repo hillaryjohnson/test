@@ -108,7 +108,12 @@ h2 {
   
 h3 {
   font-style: normal;
+  margin: .5em 0 0 0;
 
+}
+
+p {
+  margin: 0 0 1em;
 }
 
 #sidebar {
@@ -116,9 +121,9 @@ h3 {
   border-right : thin solid #d2d2d2;
 }
 
-#scorecard p {
+#quiz_sidebar p {
   font-family: trebuchet;
-  
+  min-height: 600px;
 }
 
 td {
@@ -130,10 +135,19 @@ blockquote h2 {
   font-weight: bold;
   font-size: 1.6em;
 }
+#content {
+  min-height: 600px;
+}
 
-#scorecard {
-  border-left: thin solid #d2d2d2;
-  padding: 0 0 0 40px;
+#quiz_sidebar {
+  border-right: thin solid #d2d2d2;
+  padding: 0 20px 0 20px;
+  text-align:center;
+}
+
+#faq_page .answer {
+  margin: 10px;
+  line-height: 1.3em;
 }
 
 .points {
@@ -159,6 +173,26 @@ blockquote h2 {
 
 #footer {
   text-align: center;
+  height: 40px;
+ /* border-top: thin solid #ddd; */
+  font-size: 1.2em;
+}
+
+#footer a:link {
+  color: #666;
+  text-decoration:none;
+}
+#footer a:visited {
+  color: #666;
+  text-decoration:none;
+}
+
+
+
+#usernav {
+  border-top: thin solid #ddd;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .question_nav {
@@ -184,10 +218,28 @@ input  {
 }
 */
 
-.scorecard img {
+.side_image {
   display: block;
   margin: 0 auto;
 }
+
+#result {
+  text-align:center;
+}
+
+/*** admin area stylings ***/
+
+#questions li {
+  background: #ddd;
+  line-height: 1em;
+  padding: 8px;
+  margin: 2px;
+}
+
+#questions li p {
+  margin: 0;
+}
+
 
 /*** page stylings ***/
 
@@ -223,9 +275,8 @@ font-size: 1.3em;
 
 #done {
   display:block;
-  margin: 40px auto 0;
+  margin: 0 auto;
   cursor:pointer;
- 
 }
 
 #rightanswer {
@@ -296,3 +347,5 @@ font-size: 1.3em;
     margin-right: 1em; }
   .flickr_pagination .next_page {
     margin-left: 1em; }
+    
+    

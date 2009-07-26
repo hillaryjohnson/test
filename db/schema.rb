@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090722173104) do
+ActiveRecord::Schema.define(:version => 20090724232257) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20090722173104) do
     t.datetime "updated_at"
   end
 
+  create_table "faqs", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "visual",     :limit => 255
@@ -50,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20090722173104) do
     t.text     "qbody"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
+    t.integer  "position"
   end
 
   create_table "sessions", :force => true do |t|

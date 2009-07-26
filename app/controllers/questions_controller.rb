@@ -1,13 +1,23 @@
 class QuestionsController < ApplicationController
 before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answers, :welcome, :finish]
 
+
+   
+
+
+
   def index
-    @questions = Question.paginate :per_page => 10, :page => params[:page], :order => 'created_at DESC'
+    @questions = Question.paginate :per_page => 5, :page => params[:page], :order => 'position'
     @scorecard = find_scorecard
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @questions }
+      format.js
+    end
   end
   
   def show
-    @question = Question.find(params[:id])
+    @question = Question.find_by_position(params[:id])
     @scorecard = find_scorecard
   end
   
@@ -47,22 +57,27 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
     redirect_to questions_url
   end
   
-   def next
+  def next
     @question = Question.find(params[:id])
     @next_question = Question.next(@question)
-
   end
+  
+   
+    
   
   def add_to_scorecard
+    question = Question.find_by_position(params[:id])
     answer = Answer.find(params[:answer])
-    @scorecard = find_scorecard
+    @scorecard = find_scorecard 
     @scorecard.add_answer(answer)
-    respond_to do |format|
-      format.js
-    end
+    @scorecard.add_question(question)
+      respond_to do |format|
+        format.js
+      end
   end
   
-    def erase_answers
+  
+  def erase_answers
     session[:scorecard] = nil
     flash[:notice] = "your answer sheet is now blank"
     redirect_to :action => "welcome"
@@ -79,6 +94,15 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
     session[:scorecard] = nil
   end
   
+  def sort
+    params[:questions].each_with_index do |id, index|
+      Question.update_all(['position=?', index+1], ['id=?', id])
+    end
+    render :nothing => true
+  end
+  
+  
+  
  
   
   
@@ -87,7 +111,12 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
   
   private
   
+  def find_question_id
+    session[:scorecard]
+  end
+  
   def find_scorecard
     session[:scorecard] ||= Scorecard.new
   end
+
 end

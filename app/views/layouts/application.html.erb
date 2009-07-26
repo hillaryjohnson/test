@@ -23,14 +23,22 @@
         
           <hr />
        
-        <div id="content" class="span-24" >          
+        <div id="content" class="span-24" > 
+                  
             <% if flash[:notice] -%>
-                  <div id="notice"><%= flash[:notice] %></div>
+                   <%= show_flash_message(:fade => 1) %>
             <% end %>
             
           <%= yield %>
+          <div class="clear"></div>
+          
+            
         </div>
         
+        <div id="footer" class="span-24">
+            <%= link_to "FAQ", faqs_path %> | <a href="http://www.agilelearninglabs.com">HOME</a> | <a href="http://blog.technicalmanagementinstitute.com">BLOG</a>
+        </div>
+          
         <div class="clear"></div>
 
     </div>

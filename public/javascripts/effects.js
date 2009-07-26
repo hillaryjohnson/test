@@ -1126,3 +1126,32 @@ $w('getInlineOpacity forceRerendering setContentZoom collectTextNodes collectTex
 );
 
 Element.addMethods(Effect.Methods);
+
+
+/*----------my effects------------*/
+
+
+
+/*-----shake vertical---------*/
+
+Effect.ShakeVertical = function(element) {
+  element = $(element);
+  var oldStyle = {
+    top: Element.getStyle(element, 'top'),
+    left: Element.getStyle(element, 'left') };
+      return new Effect.Move(element, 
+        { x:  0, y: 14, duration: 0.2, afterFinishInternal: function(effect) {
+      new Effect.Move(effect.element,
+        { x: 0, y: -10, duration: 0.2,  afterFinishInternal: function(effect) {
+      new Effect.Move(effect.element,
+        { x:  0, y: 10, duration: 0.3,  afterFinishInternal: function(effect) {
+      new Effect.Move(effect.element,
+        { x: 0, y: -10, duration: 0.3,  afterFinishInternal: function(effect) {
+      new Effect.Move(effect.element,
+        { x:  0, y: 0, duration: 0.0,  afterFinishInternal: function(effect) {
+      new Effect.Move(effect.element,
+        { x: 0, y: 0, duration: 0.0, afterFinishInternal: function(effect) { with(Element) {
+        undoPositioned(effect.element);
+        setStyle(effect.element, oldStyle);
+  }}}) }}) }}) }}) }}) }});
+}

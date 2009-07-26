@@ -1,0 +1,20 @@
+<% title "Faq" %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @faq.title %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @faq.body %>
+</p>
+<p>
+  <strong>Position:</strong>
+  <%=h @faq.position %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_faq_path(@faq) %> |
+  <%= link_to "Destroy", @faq, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", faqs_path %>
+</p>

@@ -1,48 +1,31 @@
-<div id="quiz" class="span-14">
+<div id="questions_admin">
+  <div id="quiz" class="span-14">
+    <ul id="questions">
+      <% @questions.each do |question| %>
+        <% content_tag_for(:li, question) do %>
+          <p><%= link_to "Edit", edit_question_path(question) %> <%= link_to "Delete", question, :confirm => 'Are you sure?', :method => :delete %> <%= link_to "Visit", question_path(question) %> <%=h question.qbody %></p>
+      <!--      <div id="answers">
+               <%= render :partial =>  question.answers %>
+            </div> 
+          -->
+        <% end %>
+      <% end %>
+    </ul> 
+    
+    <div class="flickr_pagination">
+      <%= will_paginate @questions %>
+    </div>
+    <%= sortable_element("questions", :url => sort_questions_path) %>
+  </div><!--quiz-->
 
-
-<% for question in @questions %>
-<div class="question_nav"><%= will_paginate @questions %></div>
-  <blockquote>
-    <h2><%=h question.qbody %></h2>
-      <div id="answers">
-        <% form_tag({ :controller => "questions", :action => "add_to_scorecard" }) do %>
-        <table>
-        <%= render :partial =>  question.answers %>
-        </table>
-            <%= submit_tag 'submit answer' %>
-   <% end %>
-      </div>
-
-  <% if current_admin %>
-      <%= link_to "Edit", edit_question_path(question) %>
-      <%= link_to "Destroy", question, :confirm => 'Are you sure?', :method => :delete %>
-  <% end %>
- 
-  </blockquote>
-<% end %>
-<div class="question_nav"><%= will_paginate @questions %></div>
-</div><!--quiz-->
-
-<div id="scorecard" class="span-8 last">
-<%= render(:partial => "scorecard", :object => @scorecard) %>
-</div><!--scorecard-->
-
-<div id="footer" class="span-24">
-  
-
-  <p><%= link_to "New Question", new_question_path if current_admin %></p>
-          <div id="usernav" class="alt" >
-          <% if current_admin %>
-          <%= link_to "Edit Admin", edit_admin_path(:current) %>
-            <%= link_to "Logout", logout_path %>
-          <% else %>
-           <%= link_to "Register", new_admin_path %>
-           <%= link_to "Login", login_path %>
-          <% end %>
-          </div>
+  <div id="quiz_sidebar" class="span-6 last">
+    <div id="usernav" class="alt" >
+        <ul>
+          <li><%= link_to "New Question", new_question_path %></li>
+          <li><%= link_to "Admin", admins_path %></li>
+          <li><%= link_to "Logout", logout_path %></li>
+        </ul>      
+    </div>
+  </div> 
 </div>
-
-
-
 

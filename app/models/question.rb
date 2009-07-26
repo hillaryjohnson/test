@@ -12,5 +12,7 @@ class Question < ActiveRecord::Base
       @previous ||= self.class.find(:first,:select => ['id'],:conditions => ['id < ?', id], :order => "id desc")
       @previous ? @previous.id : nil
     end
+    
+    
   
 end

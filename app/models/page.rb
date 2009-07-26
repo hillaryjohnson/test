@@ -1,3 +1,3 @@
 class Page < ActiveRecord::Base
-  has_many :ahas
+acts_as_list
 end

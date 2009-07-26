@@ -1,25 +1,23 @@
-<div class="scorecard">
-<%= image_tag('/images/beachball.png') %>
+<div id="scorecard" >
 <% if @scorecard.items.blank? %>
-  <h2>How much do you know about story sizing?</h2>
-  <p>Here are a few questions about the art of agile estimation, which we like to refer to as "story sizing." As in life, some answers are more right than others. Your task isn't to pick the "right" answer, but the best answer. Seems more realistic, doesn't it?. You'll get some points for good answers, and more points for great answers. You'll also get feedback based on your answers. We hope you learn something, whatever your level of expertise.</p>
-  <p>So go ahead, pick an answer and get started. You'll see your score reflected right here.</p>
+  <h2>Your scorecard is blank!</h2>
+  
   <% else %>
-
-    <h3>You've earned <span id="points" class="points"><%= @scorecard.score %> points</span> so far!</h3>
-   <!-- 
-    <ul>
-      <% for  item in @scorecard.items  %>
-      <li><%=h item.abody %> Points: <%=h item.points %></li>
-      <% end %>
-    </ul>
-  -->
-    
+ 
+    <h3>You've earned a total of <span id="points" class="points"><%= @scorecard.score %> points</span>!</h3>
+   <!--
+<ul>
+<% for item in @scorecard.items %>
+<li><%=h item.abody %> Points: <%=h item.points %></li>
+<% end %>
+</ul>
+--><%= item.truthiness %><%= item.question_id %>
+</br>
        You have answered
             <% if item.truthiness == true %>
               correctly:
             <% else %>
-              incorrectly, alas:
+              incorrectly, alas:</br>
             <% end %>
           <em>"<%=h item.abody %>"</em><br />
             <% if item.truthiness == true %><br />
@@ -33,10 +31,9 @@
     
     
     
-    <%= button_to 'Delete all your answers and start over', { :action => 'erase_answers' }, :confirm => 'You know, in Agile we embrace and even celebrate failure, because we learn best from our mistakes. Inspect and adapt, baby. So, are you sure you want to start all over again?' %><br />
-
+    
+ 
     
     <% end %>
     
   </div>
-    

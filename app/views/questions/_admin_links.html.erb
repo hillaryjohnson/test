@@ -1,0 +1,4 @@
+<% if current_admin %>
+      <%= link_to "Edit", edit_question_path(question) %>
+      <%= link_to "Destroy", question, :confirm => 'Are you sure?', :method => :delete %>
+  <% end %>

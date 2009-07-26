@@ -4,6 +4,10 @@
     <h3>Question:</h3>
     <%= f.text_field :qbody %>
   </p>
+  <p>
+  <h3>Image:</h3>
+  <%= f.text_field :image_url %>
+</p>
   <% f.fields_for :answers do |a| %>
       <blockquote>
         <%= a.label :abody, "An Answer" %><br />

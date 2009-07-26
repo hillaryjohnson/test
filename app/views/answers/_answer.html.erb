@@ -1,12 +1,27 @@
-
-
       <% div_for answer do  %>
           <tr>
             <td>
               <h3><%=h answer.abody %></h3>
+              <p><% div_for(answer.feedback, :style => "display:none") do %>
+                <%= hidden_field :question, answer.question_id, :value => answer.question_id %>
+                
+<%= observe_field   :question, :with => "question_id[]", 
+                        :frequency  => 0.25, 
+                        :url        => { }, 
+                        :update     => :message     
+                      %>
+                
+                
+                
+                
+                <% end %>
+              </p>
               <% if current_admin %>
               <strong>Truthiness:</strong> <%=h answer.truthiness %> <strong>Points:</strong> <%=h answer.points %>
+              
               <% end %>
+
+
             </td>
             <td>
         
