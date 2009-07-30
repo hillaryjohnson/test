@@ -1,17 +1,19 @@
 <% form_for @question do |f| %>
+  
   <%= f.error_messages %>
   <p>
     <h3>Question:</h3>
-    <%= f.text_field :qbody %>
+    <%= f.text_field :body %>
   </p>
+  
   <p>
   <h3>Image:</h3>
-  <%= f.text_field :image_url %>
-</p>
+  <%= f.text_field :image_link %>
+  </p>
   <% f.fields_for :answers do |a| %>
       <blockquote>
-        <%= a.label :abody, "An Answer" %><br />
-        <%= a.text_field :abody %>
+        <%= a.label :body, "An Answer" %><br />
+        <%= a.text_field :body %>
         True? <%= a.check_box :truthiness %> 
         Point Value: <%= a.text_field :points, :size => "5" %> 
         Feedback: <%= a.text_field :feedback %>

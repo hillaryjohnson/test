@@ -1,31 +1,48 @@
 <div id="questions_admin">
-  <div id="quiz" class="span-14">
-    <ul id="questions">
-      <% @questions.each do |question| %>
-        <% content_tag_for(:li, question) do %>
-          <p><%= link_to "Edit", edit_question_path(question) %> <%= link_to "Delete", question, :confirm => 'Are you sure?', :method => :delete %> <%= link_to "Visit", question_path(question) %> <%=h question.qbody %></p>
-      <!--      <div id="answers">
-               <%= render :partial =>  question.answers %>
-            </div> 
-          -->
-        <% end %>
-      <% end %>
-    </ul> 
-    
-    <div class="flickr_pagination">
-      <%= will_paginate @questions %>
-    </div>
-    <%= sortable_element("questions", :url => sort_questions_path) %>
+  
+  <div id="quiz" >
+
+    <% @questions.each do |question| %>
+
+      
+        <div id="quiz_sidebar" class="span-6">
+           
+          <%= image_tag question.image_link, :class => "side_image", :onclick => "new Effect.ShakeVertical(this);" %>
+
+          <h3>Question <%= question.position %> of <%= Question.count %><XX>.</h3><br />
+          <%= image_button_to 'Start over', { :action => 'erase_answers' }, :type => "image", :src => "/images/startover.png", :confirm => 'You know, in Agile we embrace and even celebrate failure, because we learn best from our mistakes. Inspect and adapt, baby. So, are you sure you want to start all over again?' %>  
+          <%= render :partial => 'sidebar_admin' %>
+        </div><!--quiz_sidebar-->
+        <div id="main_content" class="span-16">
+          <div id="question">    
+          
+            <% form_remote_tag :url => { :action => "add_to_scorecard" }, :html => { :id => 'question_form' } do %>
+            
+              
+              <h2 class="question_head"><%=h question.body %></h2>
+              <%= hidden_field :question, question.id, :value => question.id %>
+                  <table>
+                    <%= render :partial =>  question.answers %>
+                  </table>
+                  <%= image_submit_tag("/images/done.png", :onclick => "this.disabled='disabled'", :id => "done") %>
+            <% end %>
+          </div><!--question-->
+  
+          <div id="result" style="display:none;">
+            <%= render :partial => "scorecard" %>
+            <div id="next">
+               <%= will_paginate(@users, :renderer => NextLinkRenderer, :next_label => image_tag('/images/next.png')) %>
+              <% if question.next_id.blank? %>
+                <h3><%= link_to image_tag("/images/finish.png"), finish_path %></h3>
+             <% end %>
+            </div><!--next-->
+          </div><!--result-->
+    <% end %>
+  </div><!--main_content-->
+
   </div><!--quiz-->
 
-  <div id="quiz_sidebar" class="span-6 last">
-    <div id="usernav" class="alt" >
-        <ul>
-          <li><%= link_to "New Question", new_question_path %></li>
-          <li><%= link_to "Admin", admins_path %></li>
-          <li><%= link_to "Logout", logout_path %></li>
-        </ul>      
-    </div>
-  </div> 
-</div>
+  
+  
+</div><!--question_admin"-->
 

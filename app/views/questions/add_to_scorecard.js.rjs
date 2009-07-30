@@ -1,7 +1,5 @@
 page.replace_html("scorecard", :partial => "scorecard", :object => @scorecard )
 
-
-
 page[:points].visual_effect :pulsate, :duration => 1, :pulses => 1, :from => 0.6
 
 page['done'].visual_effect :fade, :duration => 0.2
@@ -9,6 +7,7 @@ page['done'].visual_effect :fade, :duration => 0.2
 page['result'].visual_effect :appear, :queue => 'end'
 
 page['question'].visual_effect :fade, :duration => 0.4
+
 
 
 

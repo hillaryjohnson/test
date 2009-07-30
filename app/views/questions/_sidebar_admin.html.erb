@@ -1,0 +1,12 @@
+<div id="sidebar_admin">
+    <% if current_admin %>
+      <ul>
+        <li><%= link_to "Edit Question", edit_question_path(@question) %></li>
+        <li><%= link_to "Delete Question", @question, :confirm => 'Are you sure?', :method => :delete %></li> 
+        <li><%= link_to "New Question", new_question_path %></li>
+        <li><%= link_to "List Questions", allquestions_path %></li>
+        <li><%= link_to "Admin", admin_path %></li>
+        <li><%= link_to "Logout", logout_path %></li>
+      </ul>
+    <% end %>
+  </div>

@@ -1,39 +1,7 @@
 <div id="scorecard" >
-<% if @scorecard.items.blank? %>
-  <h2>Your scorecard is blank!</h2>
   
-  <% else %>
+  <%= error_messages_for :item %>
  
-    <h3>You've earned a total of <span id="points" class="points"><%= @scorecard.score %> points</span>!</h3>
-   <!--
-<ul>
-<% for item in @scorecard.items %>
-<li><%=h item.abody %> Points: <%=h item.points %></li>
-<% end %>
-</ul>
---><%= item.truthiness %><%= item.question_id %>
-</br>
-       You have answered
-            <% if item.truthiness == true %>
-              correctly:
-            <% else %>
-              incorrectly, alas:</br>
-            <% end %>
-          <em>"<%=h item.abody %>"</em><br />
-            <% if item.truthiness == true %><br />
-            That answer earns you <span class="points"><%= item.points %> points.</span><br />
-            <% else %>
-            No points for this one.<br />
-            <% end %>
-            <br /><h3>Some feedback based on your answer:</h3>
-            <%= item.feedback %><br /><br />
-    
-    
-    
-    
-    
+ <h3>You've earned <span id="points" class="points"><%= @scorecard.score %> points</span> so far!</h3><br />
  
-    
-    <% end %>
-    
-  </div>
+</div><!--socrecard-->

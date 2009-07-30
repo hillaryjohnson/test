@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090724232257) do
+ActiveRecord::Schema.define(:version => 20090727011130) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20090724232257) do
   end
 
   create_table "answers", :force => true do |t|
-    t.text     "abody"
+    t.text     "body"
     t.integer  "question_id"
     t.boolean  "truthiness"
     t.integer  "points",      :default => 0
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(:version => 20090724232257) do
   end
 
   create_table "questions", :force => true do |t|
-    t.text     "qbody"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_url"
+    t.string   "image_link"
     t.integer  "position"
   end
 

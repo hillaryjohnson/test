@@ -1,12 +1,18 @@
 class QuestionsController < ApplicationController
-before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answers, :welcome, :finish]
-
-
-   
-
+before_filter :require_admin, :except => [:index, :add_to_scorecard, :erase_answers, :welcome, :finish]
 
 
   def index
+    @questions = Question.paginate :per_page => 1, :page => params[:page], :order => 'position'
+    @scorecard = find_scorecard
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @questions }
+      format.js
+    end
+  end
+  
+  def list
     @questions = Question.paginate :per_page => 5, :page => params[:page], :order => 'position'
     @scorecard = find_scorecard
     respond_to do |format|
@@ -17,7 +23,7 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
   end
   
   def show
-    @question = Question.find_by_position(params[:id])
+    @question = Question.find(params[:id])
     @scorecard = find_scorecard
   end
   
@@ -58,8 +64,8 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
   end
   
   def next
-    @question = Question.find(params[:id])
-    @next_question = Question.next(@question)
+    @question = Question.next(params[:id])
+    render :nothing => true
   end
   
    
@@ -69,11 +75,13 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
     question = Question.find_by_position(params[:id])
     answer = Answer.find(params[:answer])
     @scorecard = find_scorecard 
+   
     @scorecard.add_answer(answer)
     @scorecard.add_question(question)
-      respond_to do |format|
-        format.js
-      end
+     respond_to do |format|
+       format.js
+    end
+ 
   end
   
   
@@ -81,11 +89,10 @@ before_filter :require_admin, :except => [:show, :add_to_scorecard, :erase_answe
     session[:scorecard] = nil
     flash[:notice] = "your answer sheet is now blank"
     redirect_to :action => "welcome"
-    #TODO fix redirect
   end
   
   def welcome
-    @question = Question.find(:first)
+    @question = Question.find_by_position(params[:id])
   end
   
   def finish

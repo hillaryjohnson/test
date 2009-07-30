@@ -13,7 +13,8 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "logout", :controller => "admin_sessions", :action => "destroy"
   map.welcome "welcome", :controller => "questions", :action => "welcome"
   map.finish "finish", :controller => "questions", :action => "finish"
-  map.list "list", :controller => "pages", :action => "list"
+  map.allpages "allpages", :controller => "pages", :action => "list"
+  map.allquestions "allquestions", :controller => "questions", :action => "list"
 
   
   map.resources :admin_sessions

@@ -1,57 +1,44 @@
 <div id="quiz_sidebar" class="span-6">
-  <%= image_tag @question.image_url, :class => "side_image", :onclick => "new Effect.ShakeVertical(this);" %>
-  <h3>Question <%= @question.id %> of <%= Question.count %><XX>.</h3><br />
-  <%= image_button_to 'Delete all your answers and start over', { :action => 'erase_answers' }, :type => "image", :src => "/images/startover.png", :confirm => 'You know, in Agile we embrace and even celebrate failure, because we learn best from our mistakes. Inspect and adapt, baby. So, are you sure you want to start all over again?' %>
-  
-  <div id="sidebar_admin">
-    <% if current_admin %>
-      <ul>
-        <li><%= link_to "Edit Question", edit_question_path(@question) %></li>
-        <li><%= link_to "Delete Question", @question, :confirm => 'Are you sure?', :method => :delete %></li> 
-        <li><%= link_to "New Question", new_question_path %></li>
-        <li><%= link_to "Admin", admin_path %></li>
-        <li><%= link_to "Logout", logout_path %></li>
-      </ul>
-    <% end %>
-  </div>
-
-      
+  <%= image_tag @question.image_link, :class => "side_image", :onclick => "new Effect.ShakeVertical(this);" %>
+  <h3>Question <%= @question.position %> of <%= Question.count %><XX>.</h3><br />
+  <%= image_button_to 'Delete all your answers and start over', { :action => 'erase_answers' }, 
+                                                                  :type => "image", 
+                                                                  :src => "/images/startover.png", 
+                                                                  :confirm => 'You know, in Agile we embrace and even celebrate failure, because we learn best from our mistakes. Inspect and adapt, baby. So, are you sure you want to start all over again?' %>  
+  <%= render :partial => 'sidebar_admin' %>
 </div><!--quiz_sidebar-->
 
 <div id="quiz" class="span-15">
   
-  <div id="question">
-    
-  <blockquote>
-   <% form_remote_tag :url => { :action => "add_to_scorecard" } do %> 
-      <h2><%=h @question.qbody %></h2>
-      <%= hidden_field :question, @question.id, :value => @question.id %>
+  <div id="question">  
+
+  
+    <blockquote>
+      <% form_remote_tag :url => { :action => "add_to_scorecard" } do %> 
+            
       
       
-      <div id="answers">
-        
+        <h2><%=h @question.body %></h2>
+        <%= hidden_field :question, @question.id, :value => @question.id %>
+          <div id="answers">
             <table>
               <%= render :partial =>  @question.answers %>
             </table>
-              <%= image_submit_tag("/images/done.png", :onclick => "this.disabled='disabled'", :id => "done") %>
-
-        <% end %>
-      </div><!--answers-->
-    
-
-
-  </blockquote>
-   
+            <%= image_submit_tag("/images/done.png", :onclick => "this.disabled='disabled'", :id => "done") %>
+          </div><!--answers--> 
+      <% end %>
+    </blockquote>   
   </div><!--question-->
+  
   <div id="result" style="display:none;">
-    <%= render(:partial => "scorecard", :object => @scorecard) %>
-        <div id="next">
+    <%= render(:partial => "scorecard", :object => @scorecard, :locals => { :scorecard => @item }) %>
+    <div id="next">
       <% if @question.next_id.blank? %>
         <h3><%= link_to image_tag("/images/finish.png"), finish_path %></h3>
       <% else %>
-        <%= link_to image_tag("/images/next.png"), question_path(@question.next_id) %>
-        <% end %>
-
-    </div>
-  </div>
+        <%= link_to image_tag("/images/next.png"), question_path(@question) %>
+      <% end %>
+    </div><!--next-->
+  </div><!--result-->
+  
 </div><!--quiz-->

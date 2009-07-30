@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
   before_filter :require_admin
   before_filter :load_question
+  
   def load_question
     @question = Question.find(params[:question_id])
   end
